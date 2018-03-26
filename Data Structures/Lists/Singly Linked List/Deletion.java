@@ -64,7 +64,7 @@ temp.next = tail;          //Adding created node in next variable of list.
 }
 
 
-//Method to delete an item with a given key
+//Method to delete an item with a given key.
 
 void deleteNode(int key)
 {
@@ -79,7 +79,7 @@ return;
 }
 
 
-while (temp!=null && temp.data!=key)        //Iterate to get node to be deleted
+while (temp!=null && temp.data!=key)        //Iterate to get node to be deleted.
 {
 prev = temp;
 temp = temp.next;
@@ -94,6 +94,38 @@ prev.next = temp.next;                     //Unlink the node from linked list.
 
 }
 
+//Method to delete an item at a given position.
+
+void delete_at_position(int pos)
+{
+
+Node temp = head, prev = null;
+
+
+if (pos==0)           //If head node is the position to delete.
+{
+head = temp.next;     //Head node changed.
+return;
+}
+
+
+
+for (int i=0;temp!=null && i<pos;i++)       //Iterate to get node to be deleted.
+{
+prev = temp;
+temp = temp.next;
+}
+
+if (prev==null || prev.next == null)        //If position is greater than no of elements in list.
+{
+return;
+}
+
+
+
+prev.next = temp.next;                  // Unlink the node at that position.
+
+}
 
 }
 
@@ -115,16 +147,25 @@ if (i==6)
 ll.insert_at_back(7);       //Inserting wrong item to delete it afterwards. 
 }
 
-System.out.println("List before Deletion:-");
+System.out.println("List before Deletion via key:-");
 
 ll.printlist();
 
 ll.deleteNode(7);         //delete the node containing key 7.
 
-System.out.println("List after Deletion:-");
+System.out.println("List after Deletion via key :-");
 
 ll.printlist();
 
+ll.delete_at_position(5);
+
+System.out.println("List after Deletion via position :-");
+
+ll.printlist();
+
+{
+
+}
 
 }
 }
