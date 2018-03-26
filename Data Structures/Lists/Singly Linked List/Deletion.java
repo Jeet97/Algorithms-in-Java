@@ -163,9 +163,5 @@ System.out.println("List after Deletion via position :-");
 
 ll.printlist();
 
-{
-
-}
-
 }
 }
